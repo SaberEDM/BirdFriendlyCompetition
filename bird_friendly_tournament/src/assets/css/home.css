@@ -1,0 +1,60 @@
+body {
+  padding-top: 61.6px;
+}
+
+.banner {
+  width: 100%;
+  height: 70vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(homeimg.jpg);
+  background-size: cover;
+  background-position: center;
+  color: white;
+  z-index: -99;
+}
+
+.cnter-1 {
+  width: 100%;
+  top: 40%;
+  position: absolute;
+  text-align: center;
+}
+
+.bannerh1 {
+  font-size: 40px;
+  word-spacing: 0px;
+  text-shadow: 0 0 7px rgb(0, 245, 118);
+}
+
+.bannera {
+  width: 200px;
+  padding: 10px;
+  text-align: center;
+  margin-left: 15px;
+  margin-right: 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  border: 2px solid rgb(30, 161, 69);
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 15px;
+
+}
+
+.bannera:hover {
+  background-color: rgb(10, 170, 58);
+  transition: 0.5s;
+  color: white
+}
+
+.bannera:hover {
+  border: none;
+}
+
+.bannerdiv {
+  position: absolute;
+}
