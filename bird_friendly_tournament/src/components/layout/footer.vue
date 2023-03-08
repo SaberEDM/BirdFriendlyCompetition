@@ -18,7 +18,7 @@
             <div class="col-7">
               <p style="margin-bottom: 0;text-align: left;">
                 Liên hệ - Tài trợ - Tuyển dụng.<br>
-                Quyền riêng tư - Điều khoảng & Dịch vụ.
+                Quyền riêng tư - Điều khoản & Dịch vụ.
     
               </p>
               <p style="margin-bottom: 0;text-align: left;"><br>Copyright

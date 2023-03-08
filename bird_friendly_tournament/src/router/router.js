@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import HomePage from '../components/view/home_page.vue'
-import LoginPage from '../components/view/login_page.vue'
-import RegisterPage from '../components/view/register_page.vue'
-import RankPage from '../components/view/rank_page.vue'
-import ResultPage from '../components/view/result_page.vue'
-import CompetitionPage from '../components/view/competition_page.vue'
+import HomePage from '../components/view/home.vue'
+import LoginPage from '../components/view/login.vue'
+import RegisterPage from '../components/view/register.vue'
+import RankPage from '../components/view/rank.vue'
+import ResultPage from '../components/view/result.vue'
+import CompetitionPage from '../components/view/competition.vue'
 
 const routes = [
     {

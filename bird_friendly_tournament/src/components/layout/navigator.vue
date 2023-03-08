@@ -13,29 +13,29 @@
         <div class="collapse navbar-collapse">
           <ul class="navbar-nav me-auto mb-2 mb-md-0">
             <li class="nav-item">
-              <a class="nav-link active highlight" href="/">Trang Chủ</a>
+              <router-link class="nav-link" to="/">Trang Chủ</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href='/match'>Lịch Thi Đấu</a>
+              <router-link class="nav-link" to='/match'>Lịch Thi Đấu</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link " href="/result">Kết Quả</a>
+              <router-link class="nav-link " to="/result">Kết Quả</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link " href="/rank">Bảng Xếp Hạng</a>
+              <router-link class="nav-link " to="/rank">Bảng Xếp Hạng</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link " href="/competition">Thi đấu</a>
+              <router-link class="nav-link " to="/competition">Thi đấu</router-link>
             </li>
           </ul>
         </div>
         <div class="d-flex">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active highlight" href="/register">Đăng Ký</a>
+              <router-link class="nav-link active highlight" to="/register">Đăng Ký</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link  highlight" href="/login">Đăng Nhập</a>
+              <router-link class="nav-link highlight" to="/login">Đăng Nhập</router-link>
             </li>
           </ul>
         </div>
