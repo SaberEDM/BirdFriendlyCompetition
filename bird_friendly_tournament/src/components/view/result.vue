@@ -29,7 +29,7 @@
                              <div class=" boxthidau col-sm-3">
                                     <div class="row edit">
                                            <div class="col-3 coleditright">
-                                                  <img class="photoedit" src="assets/img/OIP.jpg" alt="alt" />
+                                                  <img class="photoedit" src="src/assets/img/OIP.jpg" alt="alt" />
                                            </div>
                                            <div class="box col-6">
                                                   <p>9:30</p>
@@ -38,7 +38,7 @@
                                                   <p>Giao hữu 1vs1</p>
                                            </div>
                                            <div class="col-3 coleditleft">
-                                                  <img class="photoedit" src="assets/img/OIP.jpg" alt="alt" />
+                                                  <img class="photoedit" src="src/assets/img/OIP.jpg" alt="alt" />
                                            </div>
                                            <br>
                                            <div class="col-12">
@@ -62,7 +62,7 @@
                              <div class=" boxthidau col-sm-3">
                                     <div class="row edit">
                                            <div class="col-3 coleditright">
-                                                  <img class="photoedit" src="assets/img/OIP.jpg" alt="alt" />
+                                                  <img class="photoedit" src="src/assets/img/OIP.jpg" alt="alt" />
                                            </div>
                                            <div class="box col-6">
                                                   <p>9:30</p>
@@ -71,7 +71,7 @@
                                                   <p>Giao hữu 1vs1</p>
                                            </div>
                                            <div class="col-3 coleditleft">
-                                                  <img class="photoedit" src="assets/img/OIP.jpg" alt="alt" />
+                                                  <img class="photoedit" src="src/assets/img/OIP.jpg" alt="alt" />
                                            </div>
                                            <br>
                                            <div class="col-12">
@@ -95,7 +95,7 @@
                              <div class=" boxthidau col-sm-3">
                                     <div class="row edit">
                                            <div class="col-3 coleditright">
-                                                  <img class="photoedit" src="assets/img/OIP.jpg" alt="alt" />
+                                                  <img class="photoedit" src="src/assets/img/OIP.jpg" alt="alt" />
                                            </div>
                                            <div class="box col-6">
                                                   <p>9:30</p>
@@ -104,7 +104,7 @@
                                                   <p>Giao hữu 1vs1</p>
                                            </div>
                                            <div class="col-3 coleditleft">
-                                                  <img class="photoedit" src="assets/img/OIP.jpg" alt="alt" />
+                                                  <img class="photoedit" src="src/assets/img/OIP.jpg" alt="alt" />
                                            </div>
                                            <br>
                                            <div class="col-12">

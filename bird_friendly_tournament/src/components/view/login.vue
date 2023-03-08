@@ -11,13 +11,13 @@
             <form class="login100-form validate-form">
               <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
                 <span class="label-input100">Đăng Nhập</span>
-                <input class="input100" type="text" name="username" placeholder="Tên Đăng nhập">
+                <input class="input100" type="text" name="username" v-model='username' placeholder="Tên Đăng nhập">
                 <span class="focus-input100"></span>
               </div>
     
               <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
                 <span class="label-input100">Mật Khẩu</span>
-                <input class="input100" type="password" name="pass" placeholder="Nhập mật khẩu">
+                <input class="input100" type="password" name="pass" v-model='password' placeholder="Nhập mật khẩu">
                 <span class="focus-input100"></span>
               </div>
     
@@ -28,7 +28,6 @@
                     Ghi nhớ
                   </label>
                 </div>
-    
                 <div>
                   <a href="#" class="txt1">
                     Quên mật khẩu ?
@@ -37,14 +36,14 @@
               </div>
               <div class="row">
                 <div class="col-6 center container-login100-form-btn">
-                  <button class="login100-form-btn">
+                  <button class="login100-form-btn" @click='Login'>
                     Đăng nhập
                   </button>
                 </div>
                 <div class="col-6 text-center ">
-                  <button onclick="window.location.href='trangchu.html';" class="login100-form-btn">
+                  <router-link class="login100-form-btn" to="/"> 
                     Trở về
-                  </button>
+                  </router-link>
                 </div>
               </div>
             </form>
@@ -53,9 +52,41 @@
       </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
-    
-}
+  data() {
+    return {
+      username: "",
+      password: "",
+      token: "",
+    };
+  },
+  methods: {
+    async Login() {
+      await fetch(
+        "https://aspnetcore-staging.azurewebsites.net/login",
+        {
+          method: "POST",
+          body: JSON.stringify({
+          username: this.username,
+          password: this.password,
+        }),
+          headers: {
+            "Content-Type": "application/json;",
+          },
+        }).then((response) => {
+        console.log('response: ', response);
+        const tokenStr = response.data.token;       
+        localStorage.setItem("token", tokenStr),
+        localStorage.setItem("user",JSON.stringify(response.data.data)),
+        this.$router.push('/');
+        window.location.reload();
+      }).catch((error) => {
+          window.alert(error);
+        });
+    },
+  },
+};
 </script>
 <style lang="">
     

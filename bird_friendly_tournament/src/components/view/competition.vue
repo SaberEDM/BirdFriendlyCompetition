@@ -7,76 +7,40 @@
                 <div class="col">
                   <div class="card shadow" style="width: 90%;">
                     <a href="details" class="post-thumb" target="_blank">
-                      <img src="assets/images/signin.jpg" height="240px" class="card-img-top" alt="...">
+                      <img src="src/assets/images/signin.jpg" height="240px" class="card-img-top" alt="...">
                     </a>
                     <div class="card-body">
-                      <h4 class="card-title">nguyen123</h4>
-                      <p class="card-text">
-                        Thời gian: 14/02/2023
-                      </p>
-                      <p class="card-text">
-                        Loại chim: chim sẻ
-                      </p>
-                      <p class="card-text">
-                        Địa điểm: Quận 3
-                      </p>
+                      <h4 class="card-title">Bậc bạc</h4>
                     </div>
                   </div>
                 </div>
                 <div class="col">
                   <div class="card shadow" style="width: 90%;">
                     <a href="details" class="post-thumb" target="_blank">
-                      <img src="assets/images/signin.jpg" height="240px" class="card-img-top" alt="...">
+                      <img src="src/assets/images/signin.jpg" height="240px" class="card-img-top" alt="...">
                     </a>
                     <div class="card-body">
-                      <h4 class="card-title">nguyen123</h4>
-                      <p class="card-text">
-                        Thời gian: 14/02/2023
-                      </p>
-                      <p class="card-text">
-                        Loại chim: chim sẻ
-                      </p>
-                      <p class="card-text">
-                        Địa điểm: Quận 3
-                      </p>
+                      <h4 class="card-title">Bậc vàng</h4>
                     </div>
                   </div>
                 </div>
                 <div class="col">
                   <div class="card shadow" style="width: 90%;">
                     <a href="details" class="post-thumb" target="_blank">
-                      <img src="assets/images/signin.jpg" height="240px" class="card-img-top" alt="...">
+                      <img src="src/assets/images/signin.jpg" height="240px" class="card-img-top" alt="...">
                     </a>
                     <div class="card-body">
-                      <h4 class="card-title">nguyen123</h4>
-                      <p class="card-text">
-                        Thời gian: 14/02/2023
-                      </p>
-                      <p class="card-text">
-                        Loại chim: chim sẻ
-                      </p>
-                      <p class="card-text">
-                        Địa điểm: Quận 3
-                      </p>
+                      <h4 class="card-title">Bậc bạch kim</h4>
                     </div>
                   </div>
                 </div>
                 <div class="col">
                   <div class="card shadow" style="width: 90%;">
                     <a href="details" class="post-thumb" target="_blank">
-                      <img src="assets/images/signin.jpg" height="240px" class="card-img-top" alt="...">
-                    </a>
+                      <img src="src/assets/images/signin.jpg" height="240px" class="card-img-top" alt="...">                     
+                   </a>
                     <div class="card-body">
-                      <h4 class="card-title">nguyen123</h4>
-                      <p class="card-text">
-                        Thời gian: 14/02/2023
-                      </p>
-                      <p class="card-text">
-                        Loại chim: chim sẻ
-                      </p>
-                      <p class="card-text">
-                        Địa điểm: Quận 3
-                      </p>
+                      <h5 class="card-title">Bậc kim cương</h5>
                     </div>
                   </div>
                 </div>
@@ -99,24 +63,10 @@
                   </button>
                 </div>
               </div>
-              <div class="container-fluid shadow searchboxtype">
-                <h2>Tìm kiếm</h2>
-                <div class="decor-search"></div>
-                <br>
-                <div class="input-group">
-                  <div class="form-inline">
-                    <input type="search" id="form1" class="form-control" placeholder="Tìm kiếm" />
-                  </div>
-                  <button type="button" class="btn btn-success">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                  </button>
-                </div>
-              </div>
             </div>
-    
             <div class="empty"></div>
+          </div>
         </div>
-    </div>
       </main>
       <div id="taoPhongDau" class="modal fade">
         <div class="modal-dialog">
@@ -133,21 +83,21 @@
                 </div>
                 <div class="form-group">
                   <label>Thời gian</label>
-                  <input type="datetime" name="date" class="form-control" required>
+                  <input type="date" name="date" class="form-control" required>
                 </div>
                 <div class="form-group">
                   <label>Loại chim</label>
                   <input type="text" name="birdtype" class="form-control" required>
                 </div>
                 <div class="form-group">
-                  <label>Địa chỉ</label>
+                  <label>Khu vực</label>
                   <input type="text" name="address" class="form-control" required>
                 </div>
     
               </div>
               <div class="modal-footer btn btn-light">
                 <input type="button" class="btn " data-bs-dismiss="modal" value="Hủy">
-                <input type="submit" class="btn btn-success" value="Tạo">
+                <router-link to="/your-room"  class="btn btn-success" value="Tạo"></router-link>
               </div>
             </form>
           </div>
@@ -156,7 +106,7 @@
 </template>
 <script>
 export default {
-    
+
 }
 </script>
 <style lang="">

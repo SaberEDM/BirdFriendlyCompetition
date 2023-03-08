@@ -22,7 +22,7 @@
     
               </p>
               <p style="margin-bottom: 0;text-align: left;"><br>Copyright
-                <img class="iconedit-footer btn-light" src="assets/images/copyright.jfif" />
+                <img class="iconedit-footer btn-light" src="src/assets/images/copyright.jfif" />
                 2023 by Bird Friendly
                 Competition. All Rights
                 Reserved.

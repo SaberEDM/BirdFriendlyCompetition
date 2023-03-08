@@ -10,25 +10,25 @@
     
             <form class="login100-form validate-form">
               <div class="wrap-input100 validate-input m-b-26" data-validate="Không bỏ trống !">
-                <span class="label-input100">Đăng Ký</span>
-                <input class="input100" type="text" name="username" placeholder="Tên Đăng ký ">
+                <span class="label-input100">Tài khoản</span>
+                <input class="input100" type="text" name="username" placeholder="Tài khoản">
                 <span class="focus-input100"></span>
               </div>
               <div class="wrap-input100 validate-input m-b-26" data-validate="Không bỏ trống !">
-                <span class="label-input100">Họ Tên</span>
-                <input class="input100" type="text" name="name" placeholder="Họ và Tên ">
+                <span class="label-input100">Tên người dùng</span>
+                <input class="input100" type="text" name="name" placeholder="Họ & tên người dùng" v-model='username'>
                 <span class="focus-input100"></span>
-              </div>
-    
-              <div class="wrap-input100 validate-input m-b-26" data-validate="Không bỏ trống !">
-                <span class="label-input100">SĐT</span>
-                <input class="input100" type="text" name="phone" placeholder="Số Điện thoại">
-                <span class="focus-input100"></span>
-              </div>
+              </div>           
     
               <div class="wrap-input100 validate-input m-b-18" data-validate="Không bỏ trống !">
                 <span class="label-input100">Mật Khẩu</span>
-                <input class="input100" type="password" name="pass" placeholder="Nhập mật khẩu ">
+                <input class="input100" type="password" name="pass" placeholder="Nhập mật khẩu" v-model='password'>
+                <span class="focus-input100"></span>
+              </div>
+
+              <div class="wrap-input100 validate-input m-b-26" data-validate="Không bỏ trống !">
+                <span class="label-input100">Email</span>
+                <input class="input100" type="text" name="email" placeholder="Email của bạn" v-model='email'>
                 <span class="focus-input100"></span>
               </div>
     
@@ -48,14 +48,14 @@
               </div>
               <div class="row">
                 <div class="col-6 container-login100-form-btn">
-                  <button class="login100-form-btn">
+                  <button class="login100-form-btn" @click='register'>
                     Đăng ký
                   </button>
                 </div>
             </div>
             <div class="col-6 text-center ">
-                <button onclick="window.location.href='trangchu.html';" class="login100-form-btn">
-                    Trở về
+                <button class="login100-form-btn">
+                    <router-link to="/"> Trở về </router-link>
                 </button>
             </div>
             </form>
@@ -63,9 +63,42 @@
         </div>
     </div>
 </template>
+
 <script>
 export default {
-
+  data() {
+    return {
+      username: "",
+      password: "",
+      token: "",
+    };
+  },
+  methods: {
+    async Login() {
+      await fetch(
+        "https://aspnetcore-staging.azurewebsites.net/register",
+        {
+          method: "POST",
+          body: JSON.stringify({
+          username: this.username,
+          password: this.password,
+          email: this.email,
+        }),
+          headers: {
+            "Content-Type": "text/plain",
+          },
+        }).then((response) => {
+        console.log('response: ', response);
+        const tokenStr = response.data.token;       
+        localStorage.setItem("token", tokenStr),
+        localStorage.setItem("user",JSON.stringify(response.data.data)),
+        this.$router.push('/');
+        window.location.reload();
+      }).catch((error) => {
+          window.alert(error);
+        });
+    },
+  },
 }
 </script>
 <style lang="">

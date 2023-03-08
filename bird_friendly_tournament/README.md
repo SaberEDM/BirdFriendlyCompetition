@@ -10,6 +10,17 @@ This template should help get you started developing with Vue 3 in Vite.
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
 
+## install vue
+
+```sh
+npm init vue@latest
+```
+
+## install router
+```sh
+npm i -g @vue/cli
+```
+
 ## Project Setup
 
 ```sh

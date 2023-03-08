@@ -4,8 +4,9 @@
 </script>
 
 <template>
-  <main>
-    <Navigator/>
+  
+  <main>    
+    <Navigator/>    
     <router-view/>
     <Footer/>
   </main>
