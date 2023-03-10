@@ -38,7 +38,9 @@
             </div>
             <div class="col">
                 <div class="card shadow" style="width: 100%;">
+                    <div>
                     <img src="src/assets/images/joinmatch.jpg" height="240px" class="card-img-top" alt="...">
+                    </div>
                     <div class="card-body">
                         <h4 class="card-title">Tham gia thi đấu</h4>
                             <p class="card-text">Tham gia thi đấu cùng những người chơi có bậc rank cùng

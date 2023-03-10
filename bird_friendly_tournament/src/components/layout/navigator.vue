@@ -37,7 +37,7 @@
             <li class="nav-item">
               <router-link class="nav-link highlight" to="/login">Đăng Nhập</router-link>
             </li>
-            <!-- <li v-else-if="$router.currentRoute.path !='/'" class="">
+            <!-- <li class="nav-item">
               <div class="dropdown">
                 <div class="dropbtn">{{ user.username}} User001</div>
                 <div class="dropdown-content">

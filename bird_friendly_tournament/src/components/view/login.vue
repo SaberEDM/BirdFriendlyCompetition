@@ -2,7 +2,7 @@
     <div class="limiter">
         <div class="container-login100">
           <div class="wrap-login100">
-            <div class="login100-form-title" style="background-image: url(assets/images/bg-01.jpg);">
+            <div class="login100-form-title" style="background-image: url(src/assets/images/bg-01.jpg);">
               <span class="login100-form-title-1">
                 Đăng nhập
               </span>
@@ -36,7 +36,7 @@
               </div>
               <div class="row">
                 <div class="col-6 center container-login100-form-btn">
-                  <button class="login100-form-btn" @click='Login'>
+                  <button class="login100-form-btn" @click.prevent='Login'>
                     Đăng nhập
                   </button>
                 </div>
@@ -58,27 +58,19 @@ export default {
     return {
       username: "",
       password: "",
-      token: "",
     };
   },
   methods: {
-    async Login() {
-      await fetch(
+    Login() {
+      axios.post(
         "https://aspnetcore-staging.azurewebsites.net/login",
         {
-          method: "POST",
-          body: JSON.stringify({
           username: this.username,
-          password: this.password,
-        }),
-          headers: {
-            "Content-Type": "application/json;",
-          },
+          password: this.password
         }).then((response) => {
-        console.log('response: ', response);
-        const tokenStr = response.data.token;       
-        localStorage.setItem("token", tokenStr),
-        localStorage.setItem("user",JSON.stringify(response.data.data)),
+        console.log('response: ', response);      
+        localStorage.setItem("token", response),
+        localStorage.setItem("user",response),
         this.$router.push('/');
         window.location.reload();
       }).catch((error) => {
@@ -88,6 +80,3 @@ export default {
   },
 };
 </script>
-<style lang="">
-    
-</style>

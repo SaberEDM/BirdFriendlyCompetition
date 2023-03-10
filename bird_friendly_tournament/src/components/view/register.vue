@@ -2,7 +2,7 @@
     <div class="limiter">
         <div class="container-login100">
           <div class="wrap-login100">
-            <div class="login100-form-title" style="background-image: url(assets/images/bg-01.jpg);">
+            <div class="login100-form-title" style="background-image: url(src/assets/images/bg-01.jpg);">
               <span class="login100-form-title-1">
                 Đăng ký
               </span>
@@ -14,12 +14,6 @@
                 <input class="input100" type="text" name="username" placeholder="Tài khoản">
                 <span class="focus-input100"></span>
               </div>
-              <div class="wrap-input100 validate-input m-b-26" data-validate="Không bỏ trống !">
-                <span class="label-input100">Tên người dùng</span>
-                <input class="input100" type="text" name="name" placeholder="Họ & tên người dùng" v-model='username'>
-                <span class="focus-input100"></span>
-              </div>           
-    
               <div class="wrap-input100 validate-input m-b-18" data-validate="Không bỏ trống !">
                 <span class="label-input100">Mật Khẩu</span>
                 <input class="input100" type="password" name="pass" placeholder="Nhập mật khẩu" v-model='password'>
@@ -65,33 +59,28 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   data() {
     return {
       username: "",
       password: "",
-      token: "",
+      email: "",
     };
   },
   methods: {
-    async Login() {
-      await fetch(
+    Login() {
+      axios.post(
         "https://aspnetcore-staging.azurewebsites.net/register",
         {
-          method: "POST",
-          body: JSON.stringify({
+
           username: this.username,
           password: this.password,
-          email: this.email,
-        }),
-          headers: {
-            "Content-Type": "text/plain",
-          },
+          email: this.email
         }).then((response) => {
-        console.log('response: ', response);
-        const tokenStr = response.data.token;       
-        localStorage.setItem("token", tokenStr),
-        localStorage.setItem("user",JSON.stringify(response.data.data)),
+        console.log('response: ', response);      
+        localStorage.setItem("token", response),
+        localStorage.setItem("user",response),
         this.$router.push('/');
         window.location.reload();
       }).catch((error) => {
