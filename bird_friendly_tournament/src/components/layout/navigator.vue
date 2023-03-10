@@ -25,7 +25,7 @@
               <router-link class="nav-link" to="/rank">Bảng Xếp Hạng</router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" to="/competition">Thi đấu</router-link>
+              <router-link class="nav-link" to="/competition-rank">Thi đấu</router-link>
             </li>
           </ul>
         </div>

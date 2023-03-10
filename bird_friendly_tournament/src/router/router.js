@@ -6,7 +6,9 @@ import RegisterPage from '../components/view/register.vue'
 import RankPage from '../components/view/rank.vue'
 import MatchPage from '../components/view/match.vue'
 import ResultPage from '../components/view/result.vue'
-import CompetitionPage from '../components/view/competition.vue'
+import CompetitionRankPage from '../components/view/competition_rank.vue'
+import CompetitionRoomPage from '../components/view/competition_room.vue'
+import CompetitionDetailsPage from '../components/view/competition_details.vue'
 
 const routes = [
     {
@@ -34,8 +36,16 @@ const routes = [
         component: ResultPage
     },
     {
-        path: '/competition',
-        component: CompetitionPage
+        path: '/competition-room',
+        component: CompetitionRoomPage
+    },
+    {
+        path: '/competition-rank',
+        component: CompetitionRankPage
+    },
+    {
+        path: '/competition-details',
+        component: CompetitionDetailsPage
     }
 ]
 

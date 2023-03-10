@@ -68,11 +68,10 @@ export default {
           username: this.username,
           password: this.password
         }).then((response) => {
-        console.log('response: ', response);      
-        localStorage.setItem("token", response),
-        localStorage.setItem("user",response),
+        // console.log('response: ', response);
+        // localStorage.setItem("token", response),
+        // localStorage.setItem("user",response),
         this.$router.push('/');
-        window.location.reload();
       }).catch((error) => {
           window.alert(error);
         });

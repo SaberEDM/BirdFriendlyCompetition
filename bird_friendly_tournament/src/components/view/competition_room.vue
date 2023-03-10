@@ -2,7 +2,7 @@
     <main>
         <div class="container-fluid homebox-2">
           <div class="row">
-            <div class="col-lg-8">
+            <div class="col-lg-10">
               <div class="row row-cols-1 row-cols-md-2 g-4">
                 <div class="col">
                   <div class="card shadow" style="width: 90%;">
@@ -10,8 +10,9 @@
                       <img src="src/assets/images/signin.jpg" height="240px" class="card-img-top" alt="...">
                     </a>
                     <div class="card-body">
-                      <h4 class="card-title">Bậc bạc</h4>
+                      <h5 class="card-title">Phòng của ABC</h5>
                     </div>
+                    <h5 class="card-title"><router-link to='/competition-details'>Tham gia</router-link></h5>
                   </div>
                 </div>
                 <div class="col">
@@ -20,8 +21,9 @@
                       <img src="src/assets/images/signin.jpg" height="240px" class="card-img-top" alt="...">
                     </a>
                     <div class="card-body">
-                      <h4 class="card-title">Bậc vàng</h4>
+                      <h5 class="card-title">Phòng của ABC</h5>
                     </div>
+                    <h5 class="card-title"><router-link to='/competition-details'>Tham gia</router-link></h5>
                   </div>
                 </div>
                 <div class="col">
@@ -30,8 +32,9 @@
                       <img src="src/assets/images/signin.jpg" height="240px" class="card-img-top" alt="...">
                     </a>
                     <div class="card-body">
-                      <h4 class="card-title">Bậc bạch kim</h4>
+                      <h5 class="card-title">Phòng của ABC</h5>
                     </div>
+                    <h5 class="card-title"><router-link to='/competition-details'>Tham gia</router-link></h5>
                   </div>
                 </div>
                 <div class="col">
@@ -40,29 +43,31 @@
                       <img src="src/assets/images/signin.jpg" height="240px" class="card-img-top" alt="...">                     
                    </a>
                     <div class="card-body">
-                      <h5 class="card-title">Bậc kim cương</h5>
+                      <h5 class="card-title">Phòng của ABC</h5>
                     </div>
+                    <h5 class="card-title"><router-link to='/competition-details'>Tham gia</router-link></h5>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card shadow" style="width: 90%;">
+                    <a href="details" class="post-thumb" target="_blank">
+                      <img src="src/assets/images/signin.jpg" height="240px" class="card-img-top" alt="...">                     
+                   </a>
+                    <div class="card-body">
+                      <h5 class="card-title">Phòng của ABC</h5>
+                    </div>
+                    <h5 class="card-title"><router-link to='/competition-details'>Tham gia</router-link></h5>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-2">
               <button type="button" class="createbox" data-bs-toggle="modal" data-bs-target="#taoPhongDau">
                 <i class="fa-regular fa-plus"></i> Tạo phòng đấu
               </button>
-              <div class="container-fluid shadow searchbox">
-                <h2>Tìm kiếm</h2>
-                <div class="decor-search"></div>
-                <br>
-                <div class="input-group">
-                  <div class="form-inline">
-                    <input type="search" id="form1" class="form-control" placeholder="Tìm kiếm" />
-                  </div>
-                  <button type="button" class="btn btn-success">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                  </button>
-                </div>
-              </div>
+              <button type="button" class="alert-success">
+                Quay lại
+              </button>
             </div>
             <div class="empty"></div>
           </div>

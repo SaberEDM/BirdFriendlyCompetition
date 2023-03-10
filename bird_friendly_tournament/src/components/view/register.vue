@@ -73,16 +73,15 @@ export default {
       axios.post(
         "https://aspnetcore-staging.azurewebsites.net/register",
         {
-
           username: this.username,
           password: this.password,
           email: this.email
         }).then((response) => {
-        console.log('response: ', response);      
-        localStorage.setItem("token", response),
-        localStorage.setItem("user",response),
-        this.$router.push('/');
-        window.location.reload();
+        // console.log('response: ', response);      
+        // localStorage.setItem("token", response),
+        // localStorage.setItem("user",response),
+        this.$router.push('/login');
+        // window.location.reload();
       }).catch((error) => {
           window.alert(error);
         });
