@@ -18,7 +18,7 @@ h5 {
 }
 
 header {
-       font-size: 15px;
+       font-size: 19px;
 }
 
 header .row {
@@ -27,7 +27,7 @@ header .row {
 }
 
 .nav-item {
-       border-radius: 10px;
+       border-radius: 5px;
        margin-left: 10px;
 }
 
@@ -36,12 +36,12 @@ header .row {
 }
 
 .navbar {
-       background: linear-gradient(to right,#f0fff2,#99f2c8);
+       background: linear-gradient(to right, #f0fff2, #99f2c8);
 }
 
 .nav-link {
        color: #414141;
-       border-radius: 8px;
+       border-radius: 5px;
        padding: 10px;
 
 }
@@ -50,22 +50,21 @@ header .row {
        color: #cecece;
        background-color: #606060;
        transition: 1s;
-       border-radius: 16px;
+       border-radius: 5px;
 }
 
 .nav-link:active {
        color: #cecece;
        background-color: #606060;
        transition: 1s;
-       border-radius: 16px;
-       font-weight: 700;
+       border-radius: 5px;
 }
 
 .nav-link:focus {
        color: #cecece;
        background-color: #606060;
        transition: 1s;
-       border-radius: 16px;
+       border-radius: 5px;
 }
 
 .boxthidau {

@@ -29,7 +29,7 @@
             </li>
           </ul>
         </div>
-        <div class="d-flex" v-if="token==''">
+        <div class="d-flex" v-if="this.user == null">
           <ul class="navbar-nav">
             <li class="nav-item">
               <router-link class="nav-link highlight" to="/register">Đăng Ký</router-link>
@@ -45,24 +45,22 @@
               <div class="dropdown show ">
                 <button class="btn user-dropdown nav-link btn-light dropdown-toggle" type="button" id="dropdownMenuLink"
                   data-bs-toggle="dropdown" aria-expanded="false">
-                  <img class="img-headeruser" src="assets/images/user.jpg" alt="">
-                  nguyen123
+                  <div class="user-icon"><i class="fa-solid fa-user"></i> Tài khoản</div>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <a class="dropdown-item" href="user_profile.html">
-                    <div class="user-icon"><i class="fa-solid fa-user"></i></div> Cá nhân
+                  <a class="dropdown-item" href="">
+                    
                   </a>
                   <a class="dropdown-item" href="#">
-                    <div class="user-icon"><i class="fa-solid fa-calendar-days"></i></div>Lịch thi
-                    đấu
+                    <div class="user-icon"><i class="fa-solid fa-calendar-days"></i> Lịch thi
+                      đấu</div>
                   </a>
                   <a class="dropdown-item" href="#">
-                    <div class="user-icon"><i class="fa-solid fa-ranking-star"></i>
-                    </div>Xếp hạng
+                    <div class="user-icon"><i class="fa-solid fa-ranking-star"></i> Xếp hạng
+                    </div>
                   </a>
                   <a class="dropdown-item" @click.prevent="Logout">
-                    <div class="user-icon"> <i class="fa-solid fa-right-from-bracket"></i></div>
-                    Đăng xuất
+                    <div class="user-icon"> <i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</div>                    
                   </a>
                 </div>
               </div>
@@ -79,16 +77,18 @@ export default {
     return {
       isLogin: true,
       token: "",
+      user: "",
     };
   },
   mounted() {
-      this.user = JSON.parse(localStorage.getItem("token"))
+      this.user = localStorage.getItem("token")
+      console.log("user", this.user)
   },
   methods: {
     Logout() {
-      localStorage.removeItem("token");
-      this.$router.push("/");
-    },
+      localStorage.clear();     
+      this.$router.push("/login").then(this.$router.go);
+    }
   },
 };
 </script>

@@ -4,7 +4,7 @@
           <div class="row">
             <div class="col-lg-10">
               <div class="row row-cols-1 row-cols-md-2 g-4">
-                  <CompetitionList v-bind:competitionList="competitionList"/>
+                  <CompetitionWaitingList v-bind:list="list"/>
               </div>
             </div>
             <div class="col-lg-2">
@@ -15,7 +15,6 @@
             <div class="empty"></div>
           </div>
         </div>
-      </main>
       <div id="taoPhongDau" class="modal fade">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -31,62 +30,125 @@
                 </div>
                 <div class="form-group">
                   <label>Khu vực</label>
-                  <input type="text" name="address" class="form-control" required v-model="placeId">
+                  <select>
+                    <option
+                      v-for="(type, address) in locations"
+                      v-bind:key="address"
+                    >
+                      {{ type.address }}
+                    </option>
+                  </select>
                 </div>
                 <div class="form-group">
                   <label>Loại chim</label>
-                  <input type="text" name="birdtype" class="form-control" required v-mode="birdTypeId">
+                  <select>
+                    <option
+                      v-for="(type, name) in listBirdType"
+                      v-bind:key="name"
+                    >
+                      {{ type.name }}
+                    </option>
+                  </select>
                 </div>      
               </div>
               <div class="modal-footer btn btn-light">
-                <input type="button" class="btn " data-bs-dismiss="modal" value="Hủy">
-                <router-link to="/your-room"  class="btn btn-success" value="Tạo" @click.prevent='CreateMatch'></router-link>
+                <input type="button" class="btn" data-bs-dismiss="modal" value="Hủy">
+                <button type="button" class="btn btn-success" value="Tạo" @click.prevent='CreateMatch'></button>
               </div>
             </form>
           </div>
         </div>
-    </div>
+      </div>
+  </main>
 </template>
+
 <script>
 import axios from 'axios';
-import CompetitionList from '../competition/competition_list.vue'
+import CompetitionWaitingList from './competition_waiting_list.vue'
 export default {
-  components: CompetitionList,
   data() {
     return {
       date: "",
       placeId: "",
       birdTypeId: "",
       createBirdId: "",
-      competitionId: "",
-      competitionList: []
+      list: [],
+      listBirdType: [
+        {
+          "id": 1,
+          "name": "Chim cúc"
+        },
+        {
+          "id": 2,
+          "name": "Chim sơn ca"
+        },
+        {
+          "id": 3,
+          "name": "Chim hoàng yến"
+        },
+        {
+          "id": 4,
+          "name": "Chim họa mi"
+        },
+        {
+          "id": 5,
+          "name": "Chim khướu"
+        },
+        {
+          "id": 6,
+          "name": "Chim cu gáy"
+        }
+      ],
+      locations: [
+        {
+          "id": 1,
+          "address": "Quán CF thi đấu chim chuyên nghiệp Quận 1"
+        },
+        {
+          "id": 2,
+          "address": "Nhà thi đấu đa năng Quận 2"
+        },
+        {
+          "id": 3,
+          "address": "Công viên Hoàng Văn Út Quận 3"
+        },
+        {
+          "id": 4,
+          "address": "Quán CF 1986 Bình Khánh TP. Long Xuyên"
+        }
+      ]
     };
   },
   mounted() {
-    axios.get("https://aspnetcore-staging.azurewebsites.net/Competitions/"),
-    {
-      id: this.competitionId
-    }.then(response => {
-      (this.competitionList = response);
+    axios.get("https://aspnetcore-staging.azurewebsites.net/competitions/").then(response => {
+      this.list = response.data.competitionRecords;
+      console.log("response:", response.data.competitionRecords)
+      console.log("competition list:", this.list)
     })
   },
+  // mounted() {
+  //   axios.get("https://aspnetcore-staging.azurewebsites.net/BirdTypes").then(response =>{
+  //       this.listBirdType = response.data;
+  //       console.log("bird type: ", this.listBirdType)
+  //   })
+  // },
   CreateMatch() {
-      axios.post(
-        "https://aspnetcore-staging.azurewebsites.net/Competitions",
-        {
-          date: this.date,
-          placeId: this.placeId,
-          birdTypeId: this.birdTypeId,
-          createBirdId: this.createBirdId
-        }).then((response) => {
-        // console.log('response: ', response);
-        // localStorage.setItem("token", response),
-        // localStorage.setItem("user",response),
+    axios.post(
+      "https://aspnetcore-staging.azurewebsites.net/competitions/",
+      {
+        date: this.date,
+        placeId: this.placeId,
+        birdTypeId: this.birdTypeId,
+        createBirdId: this.createBirdId
+      }).then((response) => {
         this.$router.push('/competition-room');
       }).catch((error) => {
-          window.alert("Thông tin trận đấu chưa chính xác.");
-        });
-    },
+        window.alert("Thông tin trận đấu chưa chính xác.");
+      });
+  },
+  components: {
+    CompetitionWaitingList,
+  }
 }
 </script>
 <style lang="">

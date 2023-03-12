@@ -22,8 +22,7 @@
                 <p style="font-size: 19px;">Hãy mau đăng ký để tham gia vào các trận thi đấu cùng người chơi khác</p>
             </div>
         </div>
-        <div class="col-12 shadow-lg homebox-1 center">
-            <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col-12 shadow-lg homebox-1 center">      
                 <div class="col">
                     <div class="card shadow" style="width: 100%;">
                         <img src="src/assets/images/signin.jpg" class="card-img-top" alt="...">
@@ -34,8 +33,7 @@
                             <router-link to="/register" class="btn btn-success">Đăng ký</router-link>
                         </div>
                     </div>
-                </div>
-            </div>
+                </div>          
             <div class="col">
                 <div class="card shadow" style="width: 100%;">
                     <div>

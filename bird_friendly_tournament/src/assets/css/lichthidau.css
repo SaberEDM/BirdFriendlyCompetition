@@ -25,14 +25,14 @@ main {
        float: left;
 }
 
-h4 {
+.h4-match {
        font-size: 24px;
        width: auto;
        margin: 0;
        margin-left: 10px;
 }
 
-p {
+.p-match {
 
        margin: 2%;
        margin-top: 0;

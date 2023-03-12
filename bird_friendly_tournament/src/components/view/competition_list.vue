@@ -17,6 +17,11 @@ export default {
     },
     components: {
         Competition
+    },
+    data() {
+        return{
+
+        }
     }
 }
 </script>

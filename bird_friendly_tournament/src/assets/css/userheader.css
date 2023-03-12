@@ -1,0 +1,45 @@
+.img-headeruser {
+    height: 30px;
+    width: 30px;
+
+    border-radius: 100%;
+}
+
+.user-header {
+    background-color: rgb(255, 255, 255);
+}
+
+.logout-icon {
+    height: 30px;
+    width: 30px;
+    overflow: hidden;
+}
+
+.user-icon {
+    width: 25px;
+    float: left;
+}
+
+.user-dropdown {
+    width: 190px;
+    transition: 1s;
+}
+
+.user-dropdown:hover {
+    width: 200px;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+.user-profile {
+    height: 50vh;
+    color: white;
+}
+
+.cnter-2 {
+    width: 100%;
+    top: 30%;
+    color: white;
+    position: absolute;
+    text-align: center;
+}
