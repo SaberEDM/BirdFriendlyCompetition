@@ -73,7 +73,7 @@ export default {
         // localStorage.setItem("user",response),
         this.$router.push('/');
       }).catch((error) => {
-          window.alert(error);
+          window.alert("Sai tài khoản hoặc mật khẩu");
         });
     },
   },

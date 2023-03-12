@@ -11,7 +11,7 @@
             <form class="login100-form validate-form">
               <div class="wrap-input100 validate-input m-b-26" data-validate="Không bỏ trống !">
                 <span class="label-input100">Tài khoản</span>
-                <input class="input100" type="text" name="username" placeholder="Tài khoản">
+                <input class="input100" type="text" name="username" placeholder="Tài khoản" v-model='username'>
                 <span class="focus-input100"></span>
               </div>
               <div class="wrap-input100 validate-input m-b-18" data-validate="Không bỏ trống !">
@@ -42,7 +42,7 @@
               </div>
               <div class="row">
                 <div class="col-6 container-login100-form-btn">
-                  <button class="login100-form-btn" @click='register'>
+                  <button class="login100-form-btn" @click.prevent='Register'>
                     Đăng ký
                   </button>
                 </div>
@@ -69,7 +69,7 @@ export default {
     };
   },
   methods: {
-    Login() {
+    Register() {
       axios.post(
         "https://aspnetcore-staging.azurewebsites.net/register",
         {
@@ -77,9 +77,7 @@ export default {
           password: this.password,
           email: this.email
         }).then((response) => {
-        // console.log('response: ', response);      
-        // localStorage.setItem("token", response),
-        // localStorage.setItem("user",response),
+        console.log(response)
         this.$router.push('/login');
         // window.location.reload();
       }).catch((error) => {
