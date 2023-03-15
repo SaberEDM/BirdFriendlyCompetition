@@ -61,8 +61,8 @@ export default {
     };
   },
   methods: {
-    async Login() {
-      await axios.post(
+    Login() {
+      axios.post(
         "https://aspnetcore-staging.azurewebsites.net/login",
         {
           username: this.username,
@@ -70,7 +70,7 @@ export default {
         }).then((response) => {
           const token = response.data.token
           localStorage.setItem("token", token)
-          this.$router.push('/').then(this.$router.go); 
+          this.$router.push('/profile').then(this.$router.go); 
       }).catch((error) => {
           window.alert("Sai tài khoản hoặc mật khẩu");
         });

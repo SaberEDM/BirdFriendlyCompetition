@@ -1,4 +1,4 @@
-<template>
+<template lang="">
   <header>
     <nav class="navbar navbar-expand-md fixed-top">
       <div class="container-fluid">
@@ -47,18 +47,10 @@
                   data-bs-toggle="dropdown" aria-expanded="false">
                   <div class="user-icon"><i class="fa-solid fa-user"></i> Tài khoản</div>
                 </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <a class="dropdown-item" href="">
-                    
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <div class="user-icon"><i class="fa-solid fa-calendar-days"></i> Lịch thi
-                      đấu</div>
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <div class="user-icon"><i class="fa-solid fa-ranking-star"></i> Xếp hạng
-                    </div>
-                  </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">             
+                    <router-link to="/profile" class="dropdown-item">
+                      <div class="user-icon"><i class="fa-solid fa-user"></i> Cá nhân</div> 
+                    </router-link>             
                   <a class="dropdown-item" @click.prevent="Logout">
                     <div class="user-icon"> <i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</div>                    
                   </a>
@@ -92,6 +84,3 @@ export default {
   },
 };
 </script>
-<style lang="">
-    
-</style>

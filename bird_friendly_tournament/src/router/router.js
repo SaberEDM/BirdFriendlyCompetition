@@ -9,6 +9,8 @@ import ResultPage from '../components/view/result.vue'
 import CompetitionRankPage from '../components/view/competition_rank.vue'
 import CompetitionRoomPage from '../components/view/competition_room.vue'
 import CompetitionDetailsPage from '../components/view/competition_details.vue'
+import ProfilePage from '../components/view/profile.vue'
+import ErrorPage from '../components/view/error.vue'
 
 const routes = [
     {
@@ -46,7 +48,17 @@ const routes = [
     {
         path: '/competition-details',
         component: CompetitionDetailsPage
-    }
+    },
+    {
+        path: '/profile',
+        component: ProfilePage
+    },
+    { 
+        path: '/:pathMatch(.*)*', 
+        component: ErrorPage 
+    },
+    
+
 ]
 
 const router = createRouter({

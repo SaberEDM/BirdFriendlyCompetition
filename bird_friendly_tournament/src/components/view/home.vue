@@ -4,7 +4,7 @@
             <div class="container-fluid cnter-1">
                 <h1 class="bannerh1">THI ĐẤU CHIM GIAO HỮU</h1>
                 <br>
-                <p style="font-weight: 400;">Nơi giao lưu thách đấu chim, các chú chim hót khỏe nhất <br>
+                <p class="p-home" style="font-weight: 400;">Nơi giao lưu thách đấu chim, các chú chim hót khỏe nhất <br>
                             sẽ có cơ hội lọt vào Top 10 của Bảng Xếp Hạng.
                 </p>
                 <br>
@@ -22,7 +22,8 @@
                 <p style="font-size: 19px;">Hãy mau đăng ký để tham gia vào các trận thi đấu cùng người chơi khác</p>
             </div>
         </div>
-        <div class="col-12 shadow-lg homebox-1 center">      
+        <div class="col-12 shadow-lg homebox-1 center">
+            <div class="row row-cols-1 row-cols-md-3 g-4">   
                 <div class="col">
                     <div class="card shadow" style="width: 100%;">
                         <img src="src/assets/images/signin.jpg" class="card-img-top" alt="...">
@@ -34,27 +35,26 @@
                         </div>
                     </div>
                 </div>          
-            <div class="col">
-                <div class="card shadow" style="width: 100%;">
-                    <div>
-                    <img src="src/assets/images/joinmatch.jpg" height="240px" class="card-img-top" alt="...">
-                    </div>
-                    <div class="card-body">
-                        <h4 class="card-title">Tham gia thi đấu</h4>
+                <div class="col">
+                    <div class="card shadow" style="width: 100%;">
+                        <img src="src/assets/images/joinmatch.jpg" height="240px" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h4 class="card-title">Tham gia thi đấu</h4>
                             <p class="card-text">Tham gia thi đấu cùng những người chơi có bậc rank cùng
                                                   với bạn và hãy tuân thủ luật chơi.</p>
                             <router-link to="/match" class="btn btn-success">Xem các trận đấu</router-link>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col">
-                <div class="card shadow" style="width: 100%;">
-                    <img src="src/assets/images/rank2.jfif" height="240px" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h4 class="card-title">Xem Bậc Rank</h4>
+                <div class="col">
+                    <div class="card shadow" style="width: 100%;">
+                        <img src="src/assets/images/rank2.jfif" height="240px" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h4 class="card-title">Xem Bậc Rank</h4>
                             <p class="card-text">Xem số điểm của mình và không ngừng thi đấu, cải
                                                   thiện điểm để thi đấu với người có bậc rank cao hơn.</p>
                             <router-link to="/rank" class="btn btn-success">Bảng Xếp Hạng</router-link>
+                        </div>
                     </div>
                 </div>
             </div>

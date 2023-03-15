@@ -2,11 +2,6 @@ body {
   padding-top: 61.6px;
 }
 
-.p-home {
-  color: white;
-  font-size: 16px;
-}
-
 .banner {
   width: 100%;
   height: 95vh;
@@ -16,6 +11,7 @@ body {
   color: white;
   z-index: -99;
 }
+
 
 .cnter-1 {
   width: 100%;
@@ -92,7 +88,6 @@ body {
   padding: 50px 100px 50px 100px;
 
 }
-
 .homebox-2 {
   background-color: rgb(243, 255, 245);
   height: fit-content;

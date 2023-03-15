@@ -126,12 +126,6 @@ export default {
       console.log("competition list:", this.list)
     })
   },
-  // mounted() {
-  //   axios.get("https://aspnetcore-staging.azurewebsites.net/BirdTypes").then(response =>{
-  //       this.listBirdType = response.data;
-  //       console.log("bird type: ", this.listBirdType)
-  //   })
-  // },
   CreateMatch() {
     axios.post(
       "https://aspnetcore-staging.azurewebsites.net/competitions/",
