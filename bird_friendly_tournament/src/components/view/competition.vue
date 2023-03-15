@@ -28,7 +28,7 @@
             <p>Xem kết quả</p>
         </div>
         <div class="col-12 decorbox " style="text-align: center;" v-else>
-          <router-link to='/competition-details'>Tham gia</router-link>
+          <router-link>Tham gia</router-link>
         </div>
         </div>
 
