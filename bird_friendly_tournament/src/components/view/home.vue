@@ -48,7 +48,7 @@
                 </div>
                 <div class="col">
                     <div class="card shadow" style="width: 100%;">
-                        <img src="src/assets/images/rank2.jfif" height="240px" class="card-img-top" alt="...">
+                        <img src="src/assets/images/rank2.png" height="240px" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h4 class="card-title">Xem Bậc Rank</h4>
                             <p class="card-text">Xem số điểm của mình và không ngừng thi đấu, cải

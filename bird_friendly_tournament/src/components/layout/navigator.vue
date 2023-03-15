@@ -49,7 +49,7 @@
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">             
                     <router-link to="/profile" class="dropdown-item">
-                      <div class="user-icon"><i class="fa-solid fa-user"></i> Cá nhân</div> 
+                      <div class="user-icon"><i class="fa-solid fa-user"></i> Trang cá nhân</div> 
                     </router-link>             
                   <a class="dropdown-item" @click.prevent="Logout">
                     <div class="user-icon"> <i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</div>                    

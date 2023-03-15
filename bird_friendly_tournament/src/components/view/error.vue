@@ -1,5 +1,6 @@
 <template lang="">
-    <div>
+    <div style="margin-top: 100px; margin-bottom: 100px">
+        <br>
         <center>
         <b><h1 style="font-size: 72px;">ERROR 404</h1></b>
         <h3>Page not found.</h3>
