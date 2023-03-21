@@ -22,6 +22,9 @@
               <router-link class="nav-link" to="/result">Kết Quả</router-link>
             </li>
             <li class="nav-item">
+              <router-link class="nav-link" to="/rank">Xếp hạng</router-link>
+            </li>
+            <li class="nav-item">
               <router-link class="nav-link" to="/competition-room">Thi đấu</router-link>
             </li>
           </ul>

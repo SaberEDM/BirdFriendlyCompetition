@@ -28,20 +28,22 @@
                   <label>Thời gian</label>
                   <input type="date" name="date" class="form-control" required v-model="date">
                 </div>
+                <br>
                 <div class="form-group">
                   <label>Khu vực</label>
-                  <select>
+                  <select class="form-select" v-model= placeId>
                     <option
-                      v-for="(type, address) in locations"
-                      v-bind:key="address"
+                      v-for="(location, address) in locations"
+                      v-bind:key="address" v-bind:location='location'
                     >
-                      {{ type.address }}
+                      {{ location.address }}
                     </option>
                   </select>
                 </div>
+                <br>
                 <div class="form-group">
                   <label>Loại chim</label>
-                  <select>
+                  <select class="form-select" v-model='birdTypeId'>
                     <option
                       v-for="(type, name) in listBirdType"
                       v-bind:key="name"
@@ -49,11 +51,23 @@
                       {{ type.name }}
                     </option>
                   </select>
-                </div>      
+                </div>
+                <br>
+                <div class="form-group">
+                  <label>Chim tham gia thi đấu</label>
+                  <select class="form-select" v-model='createBirdId'>
+                    <option
+                      v-for="(bird, index) in listBird"
+                      v-bind:key="index" v-bind:bird='bird'
+                    >
+                      {{ bird.name }}
+                    </option>
+                  </select>
+                </div>  
               </div>
               <div class="modal-footer btn btn-light">
                 <input type="button" class="btn" data-bs-dismiss="modal" value="Hủy">
-                <button type="button" class="btn btn-success" value="Tạo" @click.prevent='CreateMatch'></button>
+                <button type="button" class="btn btn-success" value="Tạo" @click.prevent='CreateMatch'>Tạo</button>
               </div>
             </form>
           </div>
@@ -61,7 +75,6 @@
       </div>
   </main>
 </template>
-
 <script>
 import axios from 'axios';
 import CompetitionWaitingList from './competition_waiting_list.vue'
@@ -72,7 +85,16 @@ export default {
       placeId: "",
       birdTypeId: "",
       createBirdId: "",
+      listBird: [],
       list: [],
+      location: {
+        type: Object,
+        default: null
+      },
+      bird: {
+        type: Object,
+        default: null
+      },
       listBirdType: [
         {
           "id": 1,
@@ -125,8 +147,22 @@ export default {
       console.log("response:", response.data.competitionRecords)
       console.log("competition list:", this.list)
     })
+    if (localStorage.getItem("token")) {
+            this.token = localStorage.getItem("token")
+            console.log("token:", this.token)
+        }
+        axios.get("https://aspnetcore-staging.azurewebsites.net/me", {
+            headers: {
+                "Authorization": `Bearer ${this.token}`,
+            }
+
+        }).then(response => {
+            this.listBird = response.data.baseUserRecord.birdRecords;
+            console.log('list bird:', this.listBird)
+        })
   },
-  CreateMatch() {
+  methods: {
+    CreateMatch() {
     axios.post(
       "https://aspnetcore-staging.azurewebsites.net/competitions/",
       {
@@ -139,6 +175,7 @@ export default {
       }).catch((error) => {
         window.alert("Thông tin trận đấu chưa chính xác.");
       });
+    },
   },
   components: {
     CompetitionWaitingList,

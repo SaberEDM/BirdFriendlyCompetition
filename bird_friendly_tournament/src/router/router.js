@@ -46,9 +46,9 @@ const routes = [
         component: CompetitionRankPage
     },
     {
-        path: '/competition-details/:id',
+        path: '/competition-detail/:id',
         component: CompetitionDetailsPage,
-        name: 'competitionDetails'
+        name: 'competitionDetail'
     },
     {
         path: '/profile',

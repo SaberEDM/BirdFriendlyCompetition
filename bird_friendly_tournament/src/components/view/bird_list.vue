@@ -1,12 +1,10 @@
 <template lang="">
-    <tr class="candidates-list" v-if="bird != ''">
+    <tbody v-if="bird != ''">   
         <Bird v-for='(bird, index) in list' v-bind:key="index" v-bind:bird="bird"/>
-    </tr>
-    <tr class="candidates-list" v-else>
-        <center>
+    </tbody>
+    <tbody v-else>
             <h1>Bạn chưa sở hữu bất kỳ loại chim nào.</h1>
-        </center>
-    </tr>
+    </tbody>
 </template>
 
 <script>

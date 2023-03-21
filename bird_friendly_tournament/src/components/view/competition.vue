@@ -2,7 +2,7 @@
     <div class="card shadow" style="width: 90%;">
         <div class="card-body">
           <h3>
-            <center><p> Phòng {{competition.id}} </p></center>
+            <p> Phòng {{competition.id}} </p>
           </h3>
           <p>
             Ngày thi đấu: {{competition.date}}

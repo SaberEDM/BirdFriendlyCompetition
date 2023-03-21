@@ -1,8 +1,9 @@
 <template lang="">
-    <div class="card shadow" style="width: 90%;" v-if="competition.status == 'WaitingForOpponent'">
+  <div class="col" v-if="competition.status == 'WaitingForOpponent'">
+    <div class="card shadow" style="width: 90%;border-radius:15px">
         <div class="card-body">
           <h3>
-            <center><p> Phòng {{competition.id}} </p></center>
+            <p>Phòng {{competition.id}} </p>
           </h3>
           <p>
             Ngày thi đấu: {{competition.date}}
@@ -27,9 +28,10 @@
             <p>Xem kết quả</p>
         </div>
         <div class="col-12 decorbox " style="text-align: center;" v-else>
-          <router-link :to="{name: 'competitionDetails', params: {id:competition.id}}">Tham gia</router-link>
+          <router-link :to="{name:'competitionDetail', params:{id:competition.id}}"> Tham gia </router-link>
         </div>
         </div>
+      </div>
 
 </template>
 <script>

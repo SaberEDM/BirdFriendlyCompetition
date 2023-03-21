@@ -1,7 +1,5 @@
 <template lang="">
-    <div class="col">
         <CompetitionWaiting v-for='(competition, index) in list' v-bind:key="index" v-bind:competition="competition"/>
-    </div>
 </template>
 <script>
 import CompetitionWaiting from './competition_waiting.vue'
@@ -9,7 +7,7 @@ export default {
     props: {
         list: {
             type: Array,
-            default: function() {
+            default: function () {
                 return []
             }
         }
@@ -18,7 +16,7 @@ export default {
         CompetitionWaiting
     },
     data() {
-        return{
+        return {
 
         }
     }
