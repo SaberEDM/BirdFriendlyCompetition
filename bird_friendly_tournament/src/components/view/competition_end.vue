@@ -1,5 +1,6 @@
 <template lang="">
-    <div class="card shadow" style="width: 100%;" v-if="competition.status == 'Ended'">
+  <div class="col" v-if="competition.status == 'Ended'">
+    <div class="card shadow" style="width: 100%;" >
         <div class="card-body">
           <h3>
             <p> Phòng {{competition.id}} </p>
@@ -27,7 +28,7 @@
           <router-link :to="{name: 'competitionDetails', params: {id:competition.id}}">Xem kết quả</router-link>
         </div>
         </div>
-
+  </div>
 </template>
 <script>
 export default {

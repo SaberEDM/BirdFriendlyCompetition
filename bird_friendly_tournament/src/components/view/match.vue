@@ -91,10 +91,9 @@
                       </div>
                       <div class="container-fluid ">
                              <div class="row" style="padding-left: 10%;">
-                                    <div class=" boxthidau col-sm-4">
+                                   <div class=" boxthidau col-sm-4">                           
                                           <CompetitionEndedList v-bind:list="list"/>
-                                    </div>
-
+                                   </div>
                              </div>
                              <div class="empty"></div>
                       </div>

@@ -1,7 +1,5 @@
-<template lang="">
-    <div class="col">
+<template lang="">   
         <CompetitionEnd v-for='(competition, index) in list' v-bind:key="index" v-bind:competition="competition"/>
-    </div>
 </template>
 
 <script>

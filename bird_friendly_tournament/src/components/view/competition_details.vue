@@ -48,6 +48,10 @@ export default {
     }
   },
   mounted() {
+    if (localStorage.getItem("token")) {
+      this.token = localStorage.getItem("token")
+      console.log("token:", this.token)
+    }
     axios
       .get("https://aspnetcore-staging.azurewebsites.net/Competitions/" + this.$route.params.id)
       .then((response) => {
@@ -61,12 +65,18 @@ export default {
   },
   methods: {
     Join() {
-      axios.post("https://aspnetcore-staging.azurewebsites.net/Competitions/join", {
-        competitionId: Number(this.$route.params.id),
-        birdId: this.player.id
-      }).then((response) => {
-        this.$router.push('/competition-room');
-      });
+      axios.post("https://aspnetcore-staging.azurewebsites.net/Competitions/join",
+        {
+          competitionId: Number(this.$route.params.id),
+          birdId: this.player.id
+        },
+        {
+          headers: {
+            "Authorization": `Bearer ${this.token}`,
+          },
+        }).then((response) => {
+          this.$router.push('/competition-room');
+        });
     }
   }
 }

@@ -57,7 +57,6 @@
                                                         v-model="profile.address"
                                                         placeholder="Nhập số điện thoại để thay đổi">
                                                 </div>
-                                                <button class="btn btn-primary" type="button">Lưu thông tin</button>
                                             </form>
                                         </div>
                                     </div>
@@ -109,20 +108,26 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label>Tên chim</label>
-                            <input type="text" name="name" class="form-control" placeholder="Nhập tên chim" required>
+                            <input type="text" name="name" class="form-control" placeholder="Nhập tên chim" required
+                                v-model="name">
                         </div>
                         <br>
                         <div class="form-group">
                             <label>Hình Ảnh</label>
-                            <p>Vui lòng upload hình ảnh <a href="https://postimages.org/" style="color:turquoise" target="_blank">tại đây.</a> Và dán link vào bên dưới</p>
-                            <input type="text" name="name" class="form-control" placeholder="Nhập link hình ảnh" required>
+                            <p>Vui lòng upload hình ảnh <a href="https://postimages.org/" style="color:turquoise"
+                                    target="_blank">tại đây.</a> Và dán link vào bên dưới</p>
+                            <input type="text" name="name" class="form-control" placeholder="Nhập link hình ảnh" required
+                                v-model="image">
                         </div>
                         <br>
                         <div class="form-group">
                             <label>Loại chim</label>
-                            <select class="form-select">
-                                <option v-for="(type, name) in listBirdType" v-bind:key="name">
-                                    {{ type.name }}
+                            <select class="form-select" v-model="birdTypeId">
+                                <option
+                                  v-for="(bird, index) in listBirdType"
+                                  :value="bird.id"
+                                >
+                                  {{bird.name}}
                                 </option>
                             </select>
                         </div>
@@ -163,33 +168,38 @@ import BirdList from './bird_list.vue'
 export default {
     data() {
         return {
-            birdName: "",
-            birdImage: "",
+            name: "",
+            image: "",
+            birdTypeId: null,
             yourBird: [],
             listBirdType: [
                 {
-                    "id": 1,
-                    "name": "Chim cúc"
+                    "id": 11,
+                    "name": "Vàng anh"
                 },
                 {
-                    "id": 2,
-                    "name": "Chim sơn ca"
+                    "id": 12,
+                    "name": "Sáo"
                 },
                 {
-                    "id": 3,
-                    "name": "Chim hoàng yến"
+                    "id": 13,
+                    "name": "Chào Mào"
                 },
                 {
-                    "id": 4,
-                    "name": "Chim họa mi"
+                    "id": 14,
+                    "name": "Chích Chòe"
                 },
                 {
-                    "id": 5,
-                    "name": "Chim khướu"
+                    "id": 15,
+                    "name": "Khứu"
                 },
                 {
-                    "id": 6,
-                    "name": "Chim cu gáy"
+                    "id": 16,
+                    "name": "Họa Mi"
+                },
+                {
+                    "id": 17,
+                    "name": "Vành Khuyên"
                 }
             ],
             profile: [],
@@ -197,20 +207,32 @@ export default {
             token: "",
             locations: [
                 {
-                    "id": 1,
-                    "address": "Quán CF thi đấu chim chuyên nghiệp Quận 1"
-                },
-                {
-                    "id": 2,
-                    "address": "Nhà thi đấu đa năng Quận 2"
-                },
-                {
                     "id": 3,
-                    "address": "Công viên Hoàng Văn Út Quận 3"
+                    "address": "Nhà thi đấu quận 1"
                 },
                 {
                     "id": 4,
-                    "address": "Quán CF 1986 Bình Khánh TP. Long Xuyên"
+                    "address": "Nhà thi đấu quận 2"
+                },
+                {
+                    "id": 5,
+                    "address": "Quán Cà Phê Thi đấu chim Quận 3"
+                },
+                {
+                    "id": 6,
+                    "address": "Vinhome grandpark Quận 9"
+                },
+                {
+                    "id": 7,
+                    "address": "Quán CF chim, Công viên phần mềm Quang Trung"
+                },
+                {
+                    "id": 8,
+                    "address": "Nhà Thi Đấu Bình Khánh, TP. Long Xuyên"
+                },
+                {
+                    "id": 9,
+                    "address": "19 Đường Bánh Cống, TP. Cần Thơ"
                 }
             ]
         }
@@ -236,14 +258,22 @@ export default {
     methods: {
         CreateBird() {
             axios.post(
-                "https://aspnetcore-staging.azurewebsites.net/me/birds", {
-                birdName: this.birdName,
-                birdImage: this.birdImage,
-                listBirdType: this.listBirdType
-            }
+                "https://aspnetcore-staging.azurewebsites.net/me/birds",
+                {
+                    name: this.name,
+                    image: this.image,
+                    birdTypeId: this.birdTypeId,
+                },           
+                {
+                    headers: {
+                        "Authorization": `Bearer ${this.token}`,
+                    },
+
+                }
             ).then((response) => {
                 console.log(response)
                 this.$router.push('/profile')
+                window.location.reload()
             }).catch((error) => {
                 window.alert(error);
             });

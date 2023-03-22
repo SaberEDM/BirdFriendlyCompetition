@@ -7,11 +7,14 @@
                   <CompetitionWaitingList v-bind:list="list"/>
               </div>
             </div>
-            <div class="col-lg-2">
+            <div class="col-lg-2" v-if="this.token==null">
+            </div>
+            <div class="col-lg-2" v-else>
               <button type="button" class="createbox" data-bs-toggle="modal" data-bs-target="#taoPhongDau">
                 <i class="fa-regular fa-plus"></i> Tạo phòng đấu
               </button>
             </div>
+            
             <div class="empty"></div>
           </div>
         </div>
@@ -31,26 +34,26 @@
                 <br>
                 <div class="form-group">
                   <label>Khu vực</label>
-                  <select class="form-select" v-model= placeId>
+                  <select class="form-select" v-model="placeId">
                     <option
-                      v-for="(location, address) in locations"
-                      v-bind:key="address" v-bind:location='location'
+                      v-for="(location, index) in locations"
+                      :value="location.id"
                     >
-                      {{ location.address }}
+                      {{location.address}}
                     </option>
-                  </select>
+                </select>
                 </div>
                 <br>
                 <div class="form-group">
                   <label>Loại chim</label>
-                  <select class="form-select" v-model='birdTypeId'>
+                  <select class="form-select" v-model="birdTypeId">
                     <option
-                      v-for="(type, name) in listBirdType"
-                      v-bind:key="name"
+                      v-for="(bird, index) in listBirdType"
+                      :value="bird.id"
                     >
-                      {{ type.name }}
+                      {{bird.name}}
                     </option>
-                  </select>
+                </select>
                 </div>
                 <br>
                 <div class="form-group">
@@ -58,9 +61,9 @@
                   <select class="form-select" v-model='createBirdId'>
                     <option
                       v-for="(bird, index) in listBird"
-                      v-bind:key="index" v-bind:bird='bird'
+                      :value="bird.id"
                     >
-                      {{ bird.name }}
+                      {{bird.name}}
                     </option>
                   </select>
                 </div>  
@@ -73,6 +76,7 @@
           </div>
         </div>
       </div>
+
   </main>
 </template>
 <script>
@@ -97,46 +101,62 @@ export default {
       },
       listBirdType: [
         {
-          "id": 1,
-          "name": "Chim cúc"
+          "id": 11,
+          "name": "Vàng anh"
         },
         {
-          "id": 2,
-          "name": "Chim sơn ca"
+          "id": 12,
+          "name": "Sáo"
         },
         {
-          "id": 3,
-          "name": "Chim hoàng yến"
+          "id": 13,
+          "name": "Chào Mào"
         },
         {
-          "id": 4,
-          "name": "Chim họa mi"
+          "id": 14,
+          "name": "Chích Chòe"
         },
         {
-          "id": 5,
-          "name": "Chim khướu"
+          "id": 15,
+          "name": "Khứu"
         },
         {
-          "id": 6,
-          "name": "Chim cu gáy"
+          "id": 16,
+          "name": "Họa Mi"
+        },
+        {
+          "id": 17,
+          "name": "Vành Khuyên"
         }
       ],
       locations: [
         {
-          "id": 1,
-          "address": "Quán CF thi đấu chim chuyên nghiệp Quận 1"
-        },
-        {
-          "id": 2,
-          "address": "Nhà thi đấu đa năng Quận 2"
-        },
-        {
           "id": 3,
-          "address": "Công viên Hoàng Văn Út Quận 3"
+          "address": "Nhà thi đấu quận 1"
         },
         {
           "id": 4,
-          "address": "Quán CF 1986 Bình Khánh TP. Long Xuyên"
+          "address": "Nhà thi đấu quận 2"
+        },
+        {
+          "id": 5,
+          "address": "Quán Cà Phê Thi đấu chim Quận 3"
+        },
+        {
+          "id": 6,
+          "address": "Vinhome grandpark Quận 9"
+        },
+        {
+          "id": 7,
+          "address": "Quán CF chim, Công viên phần mềm Quang Trung"
+        },
+        {
+          "id": 8,
+          "address": "Nhà Thi Đấu Bình Khánh, TP. Long Xuyên"
+        },
+        {
+          "id": 9,
+          "address": "19 Đường Bánh Cống, TP. Cần Thơ"
         }
       ]
     };
@@ -148,33 +168,38 @@ export default {
       console.log("competition list:", this.list)
     })
     if (localStorage.getItem("token")) {
-            this.token = localStorage.getItem("token")
-            console.log("token:", this.token)
-        }
-        axios.get("https://aspnetcore-staging.azurewebsites.net/me", {
-            headers: {
-                "Authorization": `Bearer ${this.token}`,
-            }
+      this.token = localStorage.getItem("token")
+      console.log("token:", this.token)
+    }
+    axios.get("https://aspnetcore-staging.azurewebsites.net/me", {
+      headers: {
+        "Authorization": `Bearer ${this.token}`,
+      }
 
-        }).then(response => {
-            this.listBird = response.data.baseUserRecord.birdRecords;
-            console.log('list bird:', this.listBird)
-        })
+    }).then(response => {
+      this.listBird = response.data.baseUserRecord.birdRecords;
+      console.log('list bird:', this.listBird)
+    })
   },
   methods: {
     CreateMatch() {
-    axios.post(
-      "https://aspnetcore-staging.azurewebsites.net/competitions/",
-      {
-        date: this.date,
-        placeId: this.placeId,
-        birdTypeId: this.birdTypeId,
-        createBirdId: this.createBirdId
-      }).then((response) => {
-        this.$router.push('/competition-room');
-      }).catch((error) => {
-        window.alert("Thông tin trận đấu chưa chính xác.");
-      });
+      axios.post(
+        "https://aspnetcore-staging.azurewebsites.net/competitions/",
+        {
+          date: this.date,
+          placeId: this.placeId,
+          birdTypeId: this.birdTypeId,
+          createBirdId: this.createBirdId
+        },
+        {
+          headers: {
+            "Authorization": `Bearer ${this.token}`,
+          },
+        }).then((response) => {
+          this.$router.push('/competition-room');
+        }).catch((error) => {
+          window.alert("Thông tin trận đấu chưa chính xác.");
+        });
     },
   },
   components: {
